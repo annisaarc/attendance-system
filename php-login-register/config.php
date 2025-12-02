@@ -1,14 +1,18 @@
 <?php
-$servername = "db"; // nama service MySQL di docker-compose.yml
-$username = "annisa";
-$password = "12345";
-$database = "attendance_system";
+// Pastikan hostnya "db", bukan "localhost"
+$host = "db";
+$dbname = "attendance_system";
+$user = "annisa";
+$pass = "12345";
 
-// Membuat koneksi
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Mengecek koneksi
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+try {
+    $db = new PDO(
+        "mysql:host=$host;dbname=$dbname;charset=utf8",
+        $user,
+        $pass
+    );
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("DB Connection failed: " . $e->getMessage());
 }
 ?>
