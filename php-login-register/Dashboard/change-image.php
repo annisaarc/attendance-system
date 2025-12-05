@@ -9,23 +9,17 @@ if(isset($_POST['submit'])) {
     $ppic = $_FILES["profilepic"]["name"];
     $oldppic = $_POST['oldpic'];
     $oldprofilepic = "profilepics" . "/" . $oldppic;
-
-    // --- LOGIKA BARU UNTUK VALIDASI EKSTENSI ---
     
-    // 1. Ambil ekstensi dengan pathinfo (lebih aman)
     $extension = pathinfo($ppic, PATHINFO_EXTENSION);
     
-    // 2. Ubah jadi huruf kecil semua
     $extension = strtolower($extension);
 
-    // 3. Daftar ekstensi valid (tanpa titik)
     $allowed_extensions = array("jpg", "jpeg", "png", "gif");
 
-    // 4. Cek apakah ekstensi valid
     if(!in_array($extension, $allowed_extensions)) {
         echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
     } else {
-        // Rename file baru (tambahkan titik sebelum ekstensi)
+        // Rename file baru 
         $imgnewfile = md5($ppic) . "." . $extension;
         
         // Pindahkan file ke folder profilepics
@@ -35,7 +29,6 @@ if(isset($_POST['submit'])) {
         $query = mysqli_query($con, "update users set ProfilePic='$imgnewfile' where id='$uid' ");
         
         if ($query) {
-            // Hapus foto lama agar tidak menuh-menuhin server
             if(file_exists($oldprofilepic)){
                 unlink($oldprofilepic);
             }
@@ -113,4 +106,5 @@ if(isset($_POST['submit'])) {
 </div>
 
 </body>
+
 </html>
