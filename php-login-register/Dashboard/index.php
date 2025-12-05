@@ -226,7 +226,7 @@ if(isset($_GET['delid'])) {
                 </table>
             </div>
             
-            <!-- Footer Tabel (Opsional: Pagination area) -->
+            <!-- Footer Tabel -->
             <div class="bg-gray-50 px-6 py-3 border-t border-gray-200 flex items-center justify-between">
                 <span class="text-xs text-gray-500">
                     Menampilkan total <?php echo isset($row_count) ? $row_count : 0; ?> mahasiswa
@@ -236,4 +236,5 @@ if(isset($_GET['delid'])) {
     </div>
 
 </body>
+
 </html>
