@@ -3,14 +3,11 @@
 include('dbconnection.php');
 
 if(isset($_POST['submit'])) {
-    // --- PERBAIKAN UTAMA DI SINI ---
-    // Gunakan mysqli_real_escape_string agar tanda kutip (') tidak bikin error
     $fname = mysqli_real_escape_string($con, $_POST['fname']);
     $lname = mysqli_real_escape_string($con, $_POST['lname']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $bio   = mysqli_real_escape_string($con, $_POST['bio']);
     
-    // Ambil info file gambar
     $ppic = $_FILES["profilepic"]["name"];
 
     // --- LOGIKA VALIDASI GAMBAR ---
@@ -34,7 +31,6 @@ if(isset($_POST['submit'])) {
             echo "<script>alert('Mahasiswa berhasil ditambahkan!');</script>";
             echo "<script>window.location.href = 'index.php';</script>";
         } else {
-            // Tampilkan error asli MySQL jika ada masalah lain
             echo "<script>alert('Error: " . mysqli_error($con) . "');</script>";
         }
     }
@@ -126,4 +122,5 @@ if(isset($_POST['submit'])) {
     </script>
 
 </body>
+
 </html>
