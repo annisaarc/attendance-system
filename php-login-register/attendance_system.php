@@ -1,5 +1,5 @@
 <?php
-$db_host = "db"; // Ganti dari localhost ke db
+$db_host = "db";
 $db_user = "annisa";
 $db_pass = "12345";
 $db_name = "attendance_system";
@@ -10,3 +10,4 @@ try {
     die("Terjadi masalah: " . $e->getMessage());
 }
 ?>
+
