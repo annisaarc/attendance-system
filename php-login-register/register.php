@@ -1,12 +1,11 @@
 <?php
 session_start();
-// Aktifkan error reporting untuk debugging jika perlu
+
 error_reporting(E_ALL);
-ini_set('display_errors', 0); // Matikan tampilan error kasar ke user
+ini_set('display_errors', 0);
 
 require_once("config.php");
 
-// Jika sudah login, lempar ke dashboard
 if(isset($_SESSION['user'])) {
     header("Location: Dashboard/index.php");
     exit;
@@ -31,14 +30,12 @@ if (isset($_POST['register'])) {
         $error = "Password minimal 4 karakter.";
     } else {
         try {
-            // Cek apakah username/email sudah ada
             $check = $db->prepare("SELECT id FROM userss WHERE username = ? OR email = ?");
             $check->execute([$username, $email]);
             
             if($check->rowCount() > 0){
                 $error = "Username atau Email sudah terdaftar.";
             } else {
-                // Hash Password & Insert
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "INSERT INTO userss (name, username, email, password) VALUES (:name, :username, :email, :password)";
                 $stmt = $db->prepare($sql);
@@ -197,4 +194,5 @@ if (isset($_POST['register'])) {
     </div>
 
 </body>
+
 </html>
