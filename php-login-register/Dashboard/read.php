@@ -38,11 +38,10 @@ include('dbconnection.php');
                     <i class="fas fa-arrow-left"></i> Back to Dashboard
                 </a>
             </div>
-            <!-- Tombol Edit di Banner DIHAPUS, dipindah ke bawah agar lebih rapi -->
         </div>
 
         <div class="px-8 pb-8">
-            <!-- Area Foto Profil dan Tombol Edit (Sejajar) -->
+            <!-- Area Foto Profil dan Tombol Edit -->
             <div class="relative flex justify-between items-end -mt-16 mb-6">
                 <!-- Foto Profil Besar -->
                 <div class="relative">
@@ -56,7 +55,7 @@ include('dbconnection.php');
                     ?>
                 </div>
 
-                <!-- Tombol Edit Profile (Posisi Baru: Kanan Bawah Banner) -->
+                <!-- Tombol Edit Profile -->
                 <div class="mb-2">
                     <a href="edit.php?editid=<?php echo htmlentities($row['id']);?>" class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition ease-in-out duration-150">
                         <i class="fas fa-pen mr-2 text-gray-500"></i> Edit Profile
@@ -83,8 +82,6 @@ include('dbconnection.php');
                                 <?php echo $row['email']; ?>
                             </p>
                         </div>
-                        
-                        <!-- Member Since SUDAH DIHAPUS -->
                     </div>
 
                     <!-- Kolom Kanan: Bio -->
@@ -108,4 +105,5 @@ include('dbconnection.php');
 </div>
 
 </body>
+
 </html>
