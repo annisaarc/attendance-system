@@ -2,7 +2,6 @@
 session_start();
 require_once "config.php";
 
-// Jika sudah login, lempar ke dashboard
 if(isset($_SESSION['user'])) {
     header("Location: Dashboard/index.php");
     exit;
@@ -149,4 +148,5 @@ if (isset($_POST['login'])) {
     </div>
 
 </body>
+
 </html>
