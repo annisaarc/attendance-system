@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-// LOGIKA REDIRECT:
-// Jika admin sudah login, langsung lempar ke Dashboard.
 if(isset($_SESSION["user"])) {
     header("Location: Dashboard/index.php");
     exit;
@@ -54,7 +52,7 @@ if(isset($_SESSION["user"])) {
         </div>
     </nav>
 
-    <!-- HERO SECTION (ADMIN FOCUSED) -->
+    <!-- HERO SECTION -->
     <div class="bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
             <div class="text-center max-w-3xl mx-auto">
@@ -80,7 +78,7 @@ if(isset($_SESSION["user"])) {
         </div>
     </div>
 
-    <!-- FEATURES GRID (ADMIN FEATURES) -->
+    <!-- FEATURES GRID -->
     <div class="py-16 bg-gray-50 border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
@@ -132,4 +130,5 @@ if(isset($_SESSION["user"])) {
     </footer>
 
 </body>
+
 </html>
