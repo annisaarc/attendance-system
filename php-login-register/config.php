@@ -1,5 +1,4 @@
 <?php
-// Pastikan hostnya "db", bukan "localhost"
 $host = "db";
 $dbname = "attendance_system";
 $user = "annisa";
